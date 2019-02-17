@@ -1,6 +1,10 @@
 package jp.ac.uryukyu.ie.e185743;
 
-public class white extends Player{
+public class White extends Player{
+    public White(char color){
+        super(color);
+    }
+
 }
 
 //public class Enemy extends LivingThings {
