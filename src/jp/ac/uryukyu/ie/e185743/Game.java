@@ -96,6 +96,7 @@ public class Game {
             Main.change_turn();
         }else {
             System.out.println("指定した座標には置けませんでした");
+            Main.print_Usage();
         }
         ENEMY = 3 - Main.turn;
         ALLY = Main.turn;

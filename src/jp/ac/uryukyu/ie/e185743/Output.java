@@ -5,7 +5,8 @@ public class Output {
     public static final int
             QUIT = 0,
             PASS = 1,
-            COMMAND = 2;
+            COMMAND = 2,
+            NONE = 3;
     public static boolean PC_QUIT = false;
 
 
@@ -42,6 +43,11 @@ public class Output {
                     }
                     break;
                 }
+                case NONE:{
+                    System.out.println("指定した数または文字は不正です。");
+                    Main.print_Usage();
+                    break out;
+                }
             }
         }
     }
@@ -58,8 +64,10 @@ public class Output {
             }else if(is_Position(str)){
                 quit_or_pass_or_command = COMMAND;
                 break;
+            }else {
+                quit_or_pass_or_command = NONE;
+                break;
             }
-            System.out.println(Main.USAGE);
         }
         return quit_or_pass_or_command;
     }

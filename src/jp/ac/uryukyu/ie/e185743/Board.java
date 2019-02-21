@@ -19,7 +19,9 @@ public class Board {
         cell[pos[Main.x]][pos[Main.y]][pos[Main.z]] = col;
     }
 
-    public void initialize() {//盤面の初期配置
+    public void initialize(int L) {//盤面の初期配置 盤の大きさを引数にとり盤の中央に2*2*2で配置する
+        int init_poi1 = L/2 -1;
+        int init_poi2 = L/2;
         for(int a = 0; a < y; a++){
             for(int b = 0; b < x; b++){
                 cell[b][a][z-z] = Main.WALL;
@@ -30,8 +32,14 @@ public class Board {
                 cell[x-1][b][a] = Main.WALL;
             }
         }
-        cell[2][3][1] = cell[3][2][1] = cell[3][3][2] = cell[2][2][2] = Main.WHITE;
-        cell[2][2][1] = cell[3][3][1] = cell[2][3][2] = cell[3][2][2] = Main.BLACK;
+        cell[init_poi1][init_poi2][init_poi2] =
+                cell[init_poi2][init_poi1][init_poi2] =
+                        cell[init_poi2][init_poi2][init_poi1] =
+                                cell[init_poi1][init_poi1][init_poi1] = Main.WHITE;
+        cell[init_poi1][init_poi1][init_poi2] =
+                cell[init_poi2][init_poi2][init_poi2] =
+                        cell[init_poi1][init_poi2][init_poi1] =
+                                cell[init_poi2][init_poi1][init_poi1] = Main.BLACK;
     }
 
     public void open() {
@@ -100,10 +108,6 @@ public class Board {
     public boolean gameIs_Over() {//is_Overのゲッター
         return is_Over;
     }
-
-//    public static int getCell(int[] pos){
-//        return Board.cell[pos[Main.x]][pos[Main.y]][pos[Main.z]];
-//    }
 
     public static int chk_Cell_Ahead(int[] pos, int[] dir){//bの座標からDir動いた座標のcellを確認
         return cell[pos[Main.x] + dir[Main.x]][pos[Main.y] + dir[Main.y]][pos[Main.z] +dir[Main.z]];
