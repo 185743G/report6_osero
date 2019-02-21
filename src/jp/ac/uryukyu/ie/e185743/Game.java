@@ -44,14 +44,14 @@ public class Game {
             p[Main.z] = pos[Main.z];
             if (Board.chk_Cell_Ahead(pos, dir[i]) == ENEMY) {//置きたいマスの周囲１マスに敵がいるか確認
                 while (true) {
-                    Board.set_Next_Position(p, dir[i]);//さらに先の座標を代入
-                    if (Board.chk_Cell_Ahead(p, dir[i]) == ALLY) {//味方が敵を挟んでるか確認
+                    Board.set_Next_Position(p, dir[i]);//敵がある方向にいたらそのさらに奥の座標を代入
+                    if (Board.chk_Cell_Ahead(p, dir[i]) == ALLY) {//味方が敵を挟んでいることを確認
                         result = true;
                         break out;
 
-                    } else if (Board.chk_Cell_Ahead(p, dir[i]) == ENEMY) {
+                    } else if (Board.chk_Cell_Ahead(p, dir[i]) == ENEMY) {//敵の奥に敵がいたらさらに奥を探す
                         continue;
-                    }//壁まで調べたら別の方向を検討する
+                    }//壁を確認したら別の方向を検討する
                     break;
                 }
             }
@@ -65,7 +65,7 @@ public class Game {
             p[Main.x] = pos[Main.x];
             p[Main.y] = pos[Main.y];
             p[Main.z] = pos[Main.z];
-            if(Board.chk_Cell_Ahead(pos, dir[i]) == ENEMY){
+            if(Board.chk_Cell_Ahead(pos, dir[i]) == ENEMY){//敵がある方向にいたらそのさらに奥の座標を代入
                 out:while(true){
                     Board.set_Next_Position(p, dir[i]);
 
@@ -83,7 +83,7 @@ public class Game {
                         }
                     } else if(Board.chk_Cell_Ahead(p, dir[i]) == ENEMY){
                         continue;
-                    }
+                    }//壁を確認したら別の方向を検討する
                     break;
                 }
             }

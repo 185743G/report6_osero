@@ -73,6 +73,11 @@ public class Output {
     }
 
     private static boolean is_Position(String str){//str に　"1"~"4"が入っていないか調べます
+        try{
+            Integer.parseInt(str);
+        }catch(Exception e){
+            return false;
+        }
         boolean result = false;
         for (int i = 1; i < Main.L -1; i++){
             if(Integer.parseInt(str) == i) {

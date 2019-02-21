@@ -24,12 +24,12 @@ public class Board {
         int init_poi2 = L/2;
         for(int a = 0; a < y; a++){
             for(int b = 0; b < x; b++){
-                cell[b][a][z-z] = Main.WALL;
-                cell[b][a][z-1] = Main.WALL;
-                cell[b][y - y][a] = Main.WALL;
-                cell[b][y-1][a] = Main.WALL;
-                cell[x-x][b][a] = Main.WALL;
-                cell[x-1][b][a] = Main.WALL;
+                cell[b][a][z-z] = Main.WALL;//盤の底面を壁に置き換え
+                cell[b][a][z-1] = Main.WALL;//上面を
+                cell[b][y - y][a] = Main.WALL;//前面を
+                cell[b][y-1][a] = Main.WALL;//背面を
+                cell[x-x][b][a] = Main.WALL;//左側面を
+                cell[x-1][b][a] = Main.WALL;//右側面を
             }
         }
         cell[init_poi1][init_poi2][init_poi2] =
