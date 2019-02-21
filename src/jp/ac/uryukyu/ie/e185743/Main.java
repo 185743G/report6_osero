@@ -2,7 +2,7 @@ package jp.ac.uryukyu.ie.e185743;
 
 public class Main {
     public static final int
-            L = 6,//立方体オセロ盤の一辺の長さ 周囲１マス分壁で覆っているので実質6 //L = 10 や L = 8　でも動く
+            L = 8,//立方体オセロ盤の一辺の長さ 周囲１マス分壁で覆っているので実質6 //L = 10 や L = 8　でも動く
             EMPTY=0,// オセロ盤のマスに何も置かれてないこと
             WHITE=1,// オセロ盤のマスに白石が置かれていること
             BLACK=2,// オセロ盤のマスに黒石が置かれていること
@@ -27,7 +27,7 @@ public class Main {
         return turn;
     }
 
-    private static void show_turn(){
+    public static void show_turn(){
         System.out.printf("！！%sのターン！！\n", players[turn]);
     }
 
